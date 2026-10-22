@@ -1,3 +1,16 @@
+# SKATE 3 — Port Carverton Sessions
+
+A complete, stylized 3D skateboarding session built with Three.js and Vite. Drop into the downtown plaza, carve the pyramid, launch the kicker, and lock into rails before the two-minute session runs out.
+
+- **Desktop controls:** `W` push, `S` brake, `A` / `D` carve and air-spin, `Space` ollie, tap `W` / `S` in the air for kickflips and heelflips, `R` restart.
+- **Session loop:** score 5,000 points in 120 seconds, build a trick combo, and earn a final grade.
+- **Runs offline:** the park, skater, props, textures, and UI are procedurally generated and bundled locally.
+
+```bash
+npm install
+npm run dev
+```
+
 # PlayGround
 
 <!-- omgithub:readme:start -->
