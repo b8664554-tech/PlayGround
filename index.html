@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0c0d12" />
+  <title>SKATE 3 — Port Carverton Plaza</title>
+  <meta name="description" content="A fan-made 3D skateboarding session in Port Carverton Plaza. Desktop keyboard controls." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22%3E%3Crect width=%2264%22 height=%2264%22 fill=%22%23ff5a1f%22/%3E%3Ctext x=%2232%22 y=%2246%22 font-size=%2244%22 font-family=%22Arial Black%22 font-style=%22italic%22 text-anchor=%22middle%22 fill=%22%23101116%22%3E3%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div id="app" aria-hidden="true"></div>
+
+  <div id="vignette"></div>
+  <div id="speedlines"></div>
+  <div id="grain"></div>
+
+  <div id="title-screen">
+    <div class="title-top">
+      <span class="brand">OMG<span>//</span>SKATE</span>
+      <span class="title-meta">PORT CARVERTON PLAZA<br />DESKTOP SESSION</span>
+    </div>
+
+    <div class="title-main">
+      <div class="logo-lockup">
+        <div class="logo-kicker">DROP IN. STACK CLIPS.</div>
+        <h1 class="logo">
+          <span class="logo-skate">SKATE</span>
+          <span class="logo-three">3</span>
+        </h1>
+        <div class="logo-rule"><i></i><span>FAN-MADE TRIBUTE</span><i></i></div>
+      </div>
+
+      <div class="title-panel">
+        <p class="tagline">One plaza. Endless lines.<br />Land clean, link everything.</p>
+        <div class="controls-grid">
+          <div><kbd>W</kbd><kbd>S</kbd><span>Push / brake</span></div>
+          <div><kbd>A</kbd><kbd>D</kbd><span>Carve / spin</span></div>
+          <div><kbd>SPACE</kbd><span>Charge &amp; ollie</span></div>
+          <div><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd><span>Tricks</span></div>
+          <div><kbd>Q</kbd><span>Grab (hold)</span></div>
+          <div><kbd>C</kbd><span>Camera</span> <kbd>M</kbd><span>Sound</span></div>
+        </div>
+        <button id="start-button" type="button">START</button>
+        <div class="title-foot"><span>GRIND THE RAILS</span><span>BEAT THE CHALLENGES</span><span>NO REFS</span></div>
+      </div>
+    </div>
+
+    <div class="title-bottom">
+      <span>ARROW KEYS PUSH &amp; CARVE</span>
+      <span>ESC / P — PAUSE &nbsp;·&nbsp; R — RESET</span>
+      <span>HEADSET RECOMMENDED</span>
+    </div>
+  </div>
+
+  <div id="hud" class="hidden">
+    <div class="hud-score angular">
+      <span class="hud-label">SCORE</span>
+      <div class="score-row"><span id="score">0</span><span id="combo" class="combo hidden">x1</span></div>
+      <div class="session-row"><span>SESSION</span><span id="best-trick">NO CLIPS YET</span></div>
+    </div>
+
+    <div class="hud-challenges angular">
+      <span class="hud-label">PLAZA CHALLENGES</span>
+      <ul id="challenge-list"></ul>
+    </div>
+
+    <div id="trick-callout" class="hidden">
+      <span id="trick-name">KICKFLIP</span>
+      <div><span id="trick-points">+300</span><span id="trick-mult">x1.0</span></div>
+    </div>
+
+    <div id="bail-callout" class="hidden">BAILED<span>combo lost</span></div>
+
+    <div id="charge" class="hidden">
+      <span>OLLIE CHARGE</span>
+      <div><i></i></div>
+    </div>
+
+    <div id="balance" class="hidden">
+      <span class="balance-label">BALANCE</span>
+      <div class="balance-track"><div class="balance-zone"></div><div id="balance-marker"></div></div>
+      <span class="balance-hint">A / D</span>
+    </div>
+
+    <div class="hud-speed angular">
+      <span class="hud-label">SPEED</span>
+      <div class="speed-row"><span id="speed">0.0</span><em>M/S</em></div>
+      <div class="speed-track"><i id="speed-fill"></i></div>
+    </div>
+
+    <div class="hud-hints">
+      <span><kbd>SPACE</kbd> OLLIE</span>
+      <span><kbd>J K L</kbd> TRICKS</span>
+      <span><kbd>Q</kbd> GRAB</span>
+      <span><kbd>R</kbd> RESET</span>
+    </div>
+
+    <div id="toast"><span id="toast-title">CHALLENGE COMPLETE</span><span id="toast-sub">+2,500</span></div>
+
+    <div class="hud-location"><i></i> PORT CARVERTON PLAZA</div>
+  </div>
+
+  <div id="pause-screen" class="hidden">
+    <div class="pause-card">
+      <span class="hud-label">SESSION PAUSED</span>
+      <h2>TAKE FIVE</h2>
+      <p>Press <kbd>ESC</kbd> or <kbd>P</kbd> to drop back in.</p>
+      <button id="resume-button" type="button">RESUME</button>
+    </div>
+  </div>
+
+  <div id="loading-screen">
+    <div class="loading-mark">SKATE<span>3</span></div>
+    <div class="loading-bar"><i></i></div>
+    <p>WAXING THE LEDGES…</p>
+  </div>
+
+  <script type="importmap">
+    { "imports": { "three": "./vendor/three.module.js" } }
+  </script>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
